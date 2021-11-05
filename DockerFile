@@ -1,0 +1,12 @@
+FROM node:latest
+MAINTAINER Caio Caminha
+COPY . /var/www
+WORKDIR /var/www
+#comandos podem ser passados assim em texto puro
+RUN npm install
+#ou assim em array
+ENTRYPOINT ["npm", "start"]
+EXPOSE 3000
+
+#equivalente ao comando:
+#docker run -d -p 8080:3000 -v "$(pwd):/var/www" - w "/var/www" node npm start
